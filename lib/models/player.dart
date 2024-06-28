@@ -1,8 +1,26 @@
 import 'package:clash_royale_stats/models/battle.dart';
 import 'package:clash_royale_stats/models/card.dart';
+import 'package:clash_royale_stats/models/chest.dart';
 
 class Player {
-  const Player({
+  Player.empty()
+      : tag = '',
+        name = '',
+        expLevel = -1,
+        trophies = -1,
+        bestTrophies = -1,
+        wins = -1,
+        losses = -1,
+        battleCount = -1,
+        threeCrownWins = -1,
+        donations = -1,
+        donationsReceived = -1,
+        totalDonations = -1,
+        cards = [],
+        battles = [],
+        chests = [];
+
+  Player({
     required this.tag,
     required this.name,
     required this.expLevel,
@@ -17,6 +35,7 @@ class Player {
     required this.totalDonations,
     required this.cards,
     required this.battles,
+    required this.chests,
   });
 
   final String tag;
@@ -33,4 +52,5 @@ class Player {
   final int totalDonations;
   final List<Card> cards;
   final List<Battle> battles;
+  final List<Chest> chests;
 }
