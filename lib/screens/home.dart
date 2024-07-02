@@ -1,3 +1,4 @@
+import 'package:clash_royale_stats/theme/colors.dart';
 import 'package:flutter/material.dart';
 
 import 'package:clash_royale_stats/screens/player.dart';
@@ -63,6 +64,7 @@ class _HomeScreenState extends State<HomeScreen> {
                       ),
                       const SizedBox(height: 16),
                       TextFormField(
+                        style: TextStyle(color: ColorConstants.textBlack),
                         decoration: const InputDecoration(
                           prefix: Text('#'),
                           hintText: 'ABC123456',

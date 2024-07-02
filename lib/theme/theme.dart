@@ -6,8 +6,26 @@ ThemeData getTheme() {
   return ThemeData(
     useMaterial3: true,
     fontFamily: 'Clash',
+    appBarTheme: AppBarTheme(
+      iconTheme: IconThemeData(
+        color: ColorConstants.textWhite,
+      ),
+      backgroundColor: ColorConstants.primaryColor,
+      titleTextStyle: TextStyle(
+        color: ColorConstants.textWhite,
+        fontFamily: 'Clash',
+        fontSize: 22.0,
+      ),
+    ),
     colorScheme: ColorScheme.fromSeed(
       seedColor: ColorConstants.seedColor,
+    ),
+    textTheme: const TextTheme(
+      bodyLarge: TextStyle(),
+      bodyMedium: TextStyle(),
+    ).apply(
+      bodyColor: ColorConstants.textWhite,
+      displayColor: ColorConstants.textWhite,
     ),
     elevatedButtonTheme: ElevatedButtonThemeData(
       style: ElevatedButton.styleFrom(

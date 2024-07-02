@@ -1,7 +1,10 @@
-import 'package:clash_royale_stats/models/player.dart';
-import 'package:clash_royale_stats/providers/player.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_riverpod/flutter_riverpod.dart';
+
+import 'package:clash_royale_stats/theme/colors.dart';
+import 'package:clash_royale_stats/models/player.dart';
+import 'package:clash_royale_stats/providers/player.dart';
+import 'package:clash_royale_stats/widgets/level.dart';
 
 class PlayerScreen extends ConsumerStatefulWidget {
   const PlayerScreen({
@@ -26,13 +29,13 @@ class _PlayerScreenState extends ConsumerState<PlayerScreen> {
         ref.read(playerProvider.notifier).loadPlayerInfo(widget.tag);
   }
 
-  Widget _renderAppBar(AsyncSnapshot<void> snapshot, Player player) {
+  Widget _renderAppBarTitle(AsyncSnapshot<void> snapshot, Player player) {
     if (snapshot.connectionState == ConnectionState.waiting) {
-      return const Text('Loading...');
+      return const Text('Loading');
     }
 
     if (snapshot.hasError) {
-      return const Text('Something went wrong...');
+      return const Text('Something went wrong');
     }
 
     return Text(player.name);
@@ -49,7 +52,7 @@ class _PlayerScreenState extends ConsumerState<PlayerScreen> {
       return Text(snapshot.error.toString());
     }
 
-    return Text(player.trophies.toString());
+    return const Text('Body');
   }
 
   @override
@@ -57,17 +60,38 @@ class _PlayerScreenState extends ConsumerState<PlayerScreen> {
     final player = ref.watch(playerProvider);
 
     return Scaffold(
-      appBar: AppBar(
-        title: FutureBuilder(
-          future: _playerFuture,
-          builder: (ctx, snapshot) => _renderAppBar(snapshot, player),
+      appBar: PreferredSize(
+        preferredSize: const Size.fromHeight(65.0),
+        child: AppBar(
+          leading: IconButton(
+            icon: const Icon(
+              Icons.arrow_back,
+              size: 36.0,
+            ),
+            onPressed: () {
+              Navigator.of(context).pop();
+            },
+          ),
+          leadingWidth: 36.0,
+          title: FutureBuilder(
+            future: _playerFuture,
+            builder: (ctx, snapshot) => _renderAppBarTitle(snapshot, player),
+          ),
+          actions: [
+            Level(level: player.expLevel),
+          ],
         ),
       ),
-      body: Padding(
-        padding: const EdgeInsets.all(16.0),
-        child: FutureBuilder(
-          future: _playerFuture,
-          builder: (ctx, snapshot) => _renderBody(snapshot, player),
+      body: Container(
+        width: double.infinity,
+        height: double.infinity,
+        color: ColorConstants.seedColor,
+        child: Padding(
+          padding: const EdgeInsets.all(16.0),
+          child: FutureBuilder(
+            future: _playerFuture,
+            builder: (ctx, snapshot) => _renderBody(snapshot, player),
+          ),
         ),
       ),
     );
