@@ -20,7 +20,7 @@ class MyApp extends StatelessWidget {
     return MaterialApp(
       title: 'Clash Royale Stats',
       theme: getTheme(),
-      home: HomeScreen(),
+      home: const HomeScreen(),
     );
   }
 }

@@ -1,10 +1,10 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_riverpod/flutter_riverpod.dart';
 
-import 'package:clash_royale_stats/theme/colors.dart';
 import 'package:clash_royale_stats/models/player.dart';
 import 'package:clash_royale_stats/providers/player.dart';
 import 'package:clash_royale_stats/widgets/level.dart';
+import 'package:clash_royale_stats/widgets/stats_container.dart';
 
 class PlayerScreen extends ConsumerStatefulWidget {
   const PlayerScreen({
@@ -52,7 +52,24 @@ class _PlayerScreenState extends ConsumerState<PlayerScreen> {
       return Text(snapshot.error.toString());
     }
 
-    return const Text('Body');
+    final stats = {
+      'Current trophies': player.trophies,
+      'Max trophies': player.bestTrophies,
+      'Donations': player.donations,
+      'Received donations': player.donationsReceived,
+      'Total donations': player.totalDonations,
+    };
+    return SingleChildScrollView(
+      child: Column(
+        children: [
+          StatsContainer(
+            title: 'Stats',
+            icon: 'assets/images/general/crown.png',
+            stats: stats,
+          ),
+        ],
+      ),
+    );
   }
 
   @override
@@ -82,16 +99,11 @@ class _PlayerScreenState extends ConsumerState<PlayerScreen> {
           ],
         ),
       ),
-      body: Container(
-        width: double.infinity,
-        height: double.infinity,
-        color: ColorConstants.seedColor,
-        child: Padding(
-          padding: const EdgeInsets.all(16.0),
-          child: FutureBuilder(
-            future: _playerFuture,
-            builder: (ctx, snapshot) => _renderBody(snapshot, player),
-          ),
+      body: Padding(
+        padding: const EdgeInsets.all(16.0),
+        child: FutureBuilder(
+          future: _playerFuture,
+          builder: (ctx, snapshot) => _renderBody(snapshot, player),
         ),
       ),
     );

@@ -2,6 +2,7 @@ import 'package:flutter/material.dart';
 
 class ColorConstants {
   static Color seedColor = const Color.fromRGBO(15, 37, 68, 1);
+  static Color onContainer = const Color.fromRGBO(21, 53, 92, 1);
   static Color primaryColor = const Color.fromRGBO(13, 139, 237, 1);
   static Color textWhite = const Color.fromRGBO(241, 241, 241, 1);
   static Color textBlack = const Color.fromRGBO(35, 35, 35, 1);

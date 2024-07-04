@@ -17,8 +17,11 @@ ThemeData getTheme() {
         fontSize: 22.0,
       ),
     ),
+    scaffoldBackgroundColor: ColorConstants.seedColor,
     colorScheme: ColorScheme.fromSeed(
       seedColor: ColorConstants.seedColor,
+      primary: ColorConstants.primaryColor,
+      surface: ColorConstants.seedColor,
     ),
     textTheme: const TextTheme(
       bodyLarge: TextStyle(),
