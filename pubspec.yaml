@@ -37,6 +37,7 @@ dependencies:
   flutter_dotenv: ^5.1.0
   flutter_riverpod: ^2.5.1
   faker: ^2.1.0
+  flutter_gradient_animation_text: ^1.0.2
 
 dev_dependencies:
   flutter_test:

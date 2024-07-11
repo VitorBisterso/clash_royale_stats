@@ -12,10 +12,10 @@ class ColorConstants {
   static Color gold = const Color.fromRGBO(255, 210, 108, 1);
   static Color bgCommon = const Color.fromRGBO(8, 9, 13, .7);
   static Color textCommon = const Color.fromRGBO(153, 204, 255, 1);
-  static Color bgRare = const Color.fromRGBO(201, 92, 23, 1);
+  static Color bgRare = const Color.fromRGBO(201, 92, 23, .9);
   static Color textRare = const Color.fromRGBO(255, 182, 64, 1);
-  static Color bgEpic = const Color.fromRGBO(132, 60, 191, 1);
+  static Color bgEpic = const Color.fromRGBO(132, 60, 191, .9);
   static Color textEpic = const Color.fromRGBO(255, 153, 255, 1);
-  static Color bgLegendary = const Color.fromRGBO(52, 167, 146, 1);
+  static Color bgLegendary = const Color.fromRGBO(52, 167, 146, .8);
   static Color textLegendary = const Color.fromRGBO(178, 255, 114, 1);
 }

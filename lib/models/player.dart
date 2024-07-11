@@ -16,6 +16,8 @@ class Player {
         donations = -1,
         donationsReceived = -1,
         totalDonations = -1,
+        favoriteCard = Card.empty(),
+        currentDeck = [],
         cards = [],
         battles = [],
         chests = [];
@@ -33,6 +35,8 @@ class Player {
     required this.donations,
     required this.donationsReceived,
     required this.totalDonations,
+    required this.favoriteCard,
+    required this.currentDeck,
     required this.cards,
     required this.battles,
     required this.chests,
@@ -50,6 +54,8 @@ class Player {
   final int donations;
   final int donationsReceived;
   final int totalDonations;
+  final Card favoriteCard;
+  final List<Card> currentDeck;
   final List<Card> cards;
   final List<Battle> battles;
   final List<Chest> chests;

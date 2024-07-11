@@ -1,3 +1,4 @@
+import 'package:clash_royale_stats/widgets/favorite_card.dart';
 import 'package:clash_royale_stats/widgets/games_info.dart';
 import 'package:flutter/material.dart';
 
@@ -37,6 +38,8 @@ class Profile extends StatelessWidget {
             losses: player.losses,
             threeCrownWins: player.threeCrownWins,
           ),
+          const SizedBox(height: 32),
+          FavoriteCard(card: player.favoriteCard),
         ],
       ),
     );

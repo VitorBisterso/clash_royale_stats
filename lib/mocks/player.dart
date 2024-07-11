@@ -1,6 +1,7 @@
 import 'package:faker/faker.dart';
 
 import 'package:clash_royale_stats/models/player.dart';
+import 'package:clash_royale_stats/models/card.dart';
 
 Player mockPlayer() {
   final trophies = faker.randomGenerator.integer(9000);
@@ -20,6 +21,8 @@ Player mockPlayer() {
     donations: donations,
     donationsReceived: faker.randomGenerator.integer(10000, min: 1),
     totalDonations: faker.randomGenerator.integer(10000, min: donations),
+    favoriteCard: Card.empty(),
+    currentDeck: [],
     cards: [],
     battles: [],
     chests: [],
